@@ -2,10 +2,96 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>My Private Space</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Secret Base - 日記帳</title>
+    <style>
+        /* 全体の雰囲気を整えるシンプルなレトロ・モダンCSS */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px double #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0; font-size: 24px; color: #111; }
+        
+        /* ギミックエリア（カウンター＆バナー） */
+        .gimmick-zone {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: #fafafa;
+            border: 1px dashed #ccc;
+        }
+        .counter { font-weight: bold; margin-bottom: 10px; }
+        .banners img { width: 88px; height: 31px; border: none; margin: 0 5px; }
+
+        /* 日記の記事スタイル */
+        .diary-entry {
+            margin-bottom: 40px;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 30px;
+        }
+        .diary-date { font-weight: bold; color: #666; font-size: 14px; }
+        .diary-title { font-size: 18px; margin: 5px 0 15px 0; color: #222; }
+        .diary-photo { max-width: 100%; height: auto; border: 1px solid #eee; margin-bottom: 15px; }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Site</h1>
-    <p>ここから独自のコンテンツを発信していきます。</p>
+
+<div class="container">
+    <header>
+        <h1>My Secret Base</h1>
+        <p>日々のこと、作ったものの記録。</p>
+    </header>
+
+    <!-- ギミックエリア：ここにカウンターとバナーが集結！ -->
+    <div class="gimmick-zone">
+        <!-- カウンター（仮：後述の無料サービス等で差し替え可能です） -->
+        <div class="counter">
+            あなたは 
+            <img src="https://count.moe/badge.svg?id=your-unique-site-id" alt="Counter" style="vertical-align: middle;"> 
+            人目の訪問者です。
+        </div>
+        <!-- 自分のバナー（88x31） -->
+        <div class="banners">
+            <img src="https://via.placeholder.com/88x31.png?text=MY+BANNER" alt="当サイトのバナー">
+        </div>
+    </div>
+
+    <!-- 日記の投稿エリア（新しいものを上に書いていくスタイル） -->
+    <main>
+        <!-- 記事1つ分 -->
+        <article class="diary-entry">
+            <div class="diary-date">2026年5月26日 (火)</div>
+            <h2 class="diary-title">【祝・開設記念】こういうの　俺がいいねと　言ったから　5/26は　サイト記念日</h2>
+            <!-- 写真を入れる場所 -->
+            <img class="diary-photo" src="https://via.placeholder.com/600x400.png?text=My+First+Photo" alt="今日の一枚">
+            <p>今日からついに！念願の！個人サイトを始めてみます。動機としてはせっかくインターネットをやるんだったら作っちゃおうよ！という感じです。やっぱりTwitterじゃ味気ないでしょ？</p>
+            <p>バナーとかアクセスカウンターとか、実装しようと思ってるよー。ではー。</p>
+        </article>
+    </main>
+
+    <footer>
+        <p style="text-align: center; font-size: 12px; color: #999;">&copy; 2026 Nozoe. All rights reserved.</p>
+    </footer>
+</div>
+
 </body>
 </html>
