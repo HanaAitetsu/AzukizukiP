@@ -4,7 +4,7 @@
 
 body {
     /* OS標準のフォントを指定（懐かしい粗さが出ます） */
-    font-family: "MS Gothic", "MS P Gothic", "ヒラギノ角ゴ", monospace;
+    font-family: "Hiragino Maru Gothic Pro", "游ゴシック", "游明朝", monospace;
     background-color: #ffffff; /* 真っ白 */
     color: #000000;            /* 真っ黒 */
     padding: 20px;
@@ -15,11 +15,11 @@ body {
 .container {
     max-width: 650px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #000000;
     padding: 20px;
     
     /* AIが絶対やらない、太い2重の黒枠線（角丸は当然ゼロ） */
-    border: 4px double #000000;
+    border: 4px double #137a7f;
 }
 
 /* ヘッダーエリア */
@@ -47,7 +47,7 @@ h2 {
     text-align: center;
     margin: 20px 0;
     padding: 10px;
-    border: 1px dashed #000000; /* 点線枠 */
+    border: 1px dashed #e12885; /* 点線枠 */
     background-color: #fafafa;
 }
 
@@ -74,7 +74,7 @@ h2 {
 
 .diary-date {
     font-size: 14px;
-    color: #555555;
+    color: #137a7f;
     font-weight: bold;
 }
 
@@ -102,5 +102,5 @@ footer {
     font-size: 12px;
     margin-top: 40px;
     padding-top: 10px;
-    border-top: 1px solid #000000;
+    border-top: 1px solid #e12885;
 }
