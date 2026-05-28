@@ -25,7 +25,7 @@ body {
 /* ヘッダーエリア */
 header {
     text-align: center;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #e12885;
     padding-bottom: 15px;
     margin-bottom: 25px;
 }
@@ -37,7 +37,7 @@ h1 {
 
 h2 {
     font-size: 18px;
-    border-left: 5px solid #000000;
+    border-left: 5px solid #e12885;
     padding-left: 10px;
     margin-top: 30px;
 }
@@ -48,7 +48,7 @@ h2 {
     margin: 20px 0;
     padding: 10px;
     border: 1px dashed #e12885; /* 点線枠 */
-    background-color: #fafafa;
+    background-color: #fffeec;
 }
 
 .counter {
