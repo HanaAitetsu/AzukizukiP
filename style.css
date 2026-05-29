@@ -4,7 +4,7 @@
 
 body {
     /* OS標準のフォントを指定（懐かしい粗さが出ます） */
-    font-family: "Hiragino Maru Gothic ProN", "游ゴシック", "游明朝", monospace;
+    font-family: "Hiragino Maru Gothic Pro", "游ゴシック", "游明朝", monospace;
     background-color: #86cecb; /* 真っ白 */
     color: #000000;            /* 真っ黒 */
     padding: 20px;
