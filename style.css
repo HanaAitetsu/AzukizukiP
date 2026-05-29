@@ -4,7 +4,7 @@
 
 body {
     /* OS標準のフォントを指定（懐かしい粗さが出ます） */
-    font-family: "游ゴシック", "游明朝", monospace;
+    font-family: "Hiragino Maru Gothic ProN", "游ゴシック", "游明朝", monospace;
     background-color: #86cecb; /* 真っ白 */
     color: #000000;            /* 真っ黒 */
     padding: 20px;
@@ -19,7 +19,7 @@ body {
     padding: 20px;
     
     /* AIが絶対やらない、太い2重の黒枠線（角丸は当然ゼロ） */
-    border: 4px double #137a7f;
+    border: 4px double #e12885;
 }
 
 /* ヘッダーエリア */
@@ -87,7 +87,7 @@ h2 {
 .diary-photo {
     max-width: 100%;
     height: auto;
-    border: 2px solid #000000; /* 写真にも黒枠をつける */
+    border: 2px solid #e12885; /* 写真にも黒枠をつける */
     display: block;
     margin-bottom: 10px;
 }
