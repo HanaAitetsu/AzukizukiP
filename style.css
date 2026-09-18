@@ -185,3 +185,129 @@ footer {
     flex-direction: column;
   }
 }
+
+/* ============================================================
+   追加パーツ：pixivリンクカード / 写真ギャラリー・拡大表示
+   ------------------------------------------------------------
+   ・HTMLを毎回考えなくて済むように、決まった構造をコピペするだけで
+     使えるパーツにしています(使い方は下部のコメント参照)。
+   ・写真の拡大表示はJS不要のCSSだけの仕組み(:targetを利用)です。
+   ============================================================ */
+
+/* --- pixivリンクカード ---
+   使い方:
+   <a class="pixiv-card" href="作品のURL" target="_blank" rel="noopener">
+     <span class="pixiv-card-icon">🎨</span>
+     <span class="pixiv-card-text">
+       <span class="pixiv-card-label">pixivで見る</span>
+       <span class="pixiv-card-title">作品タイトルをここに</span>
+     </span>
+   </a>
+   ※ pixivの画像は直リンク(hotlink)できない場合が多いので、
+     画像そのものは埋め込まずボタン型のカードにしています。
+     サムネイルを載せたい場合は自分で保存した画像を
+     <img class="pixiv-card-thumb" src="..."> として先頭に追加してください。
+*/
+.pixiv-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px;
+  margin: 14px 0;
+  padding: 10px 14px;
+  background-color: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background-color 0.15s ease;
+}
+
+.pixiv-card:hover {
+  background-color: #ffc2dc;
+}
+
+.pixiv-card-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.pixiv-card-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border: 1px solid var(--color-accent);
+  flex-shrink: 0;
+}
+
+.pixiv-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pixiv-card-label {
+  font-size: 11px;
+  color: var(--color-link);
+  font-weight: bold;
+}
+
+.pixiv-card-title {
+  font-size: 13px;
+}
+
+/* --- 写真ギャラリー（ガジェット改造記事などの写真多めページ用） ---
+   使い方:
+   <div class="photo-gallery">
+     <a href="#photo-001">
+       <img class="thumb" src="images/001.jpg" alt="説明文">
+     </a>
+     <div class="lightbox" id="photo-001">
+       <a href="#" class="lightbox-close" aria-label="閉じる">
+         <img src="images/001.jpg" alt="説明文">
+       </a>
+     </div>
+     <!-- 以下、枚数分 <a>+<div class="lightbox"> を繰り返すだけ -->
+   </div>
+   ※ JS不要。サムネイルをクリックすると拡大表示、
+     拡大表示の画像(または外側)をクリックすると閉じます。
+     idは photo-001, photo-002... のように写真ごとに変えてください。
+*/
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.photo-gallery .thumb {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid var(--color-accent);
+  padding: 2px;
+  background-color: #ffffff;
+  cursor: zoom-in;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: rgba(58, 42, 50, 0.85);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  border: 3px solid #ffffff;
+  cursor: zoom-out;
+}
