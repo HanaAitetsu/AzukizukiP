@@ -1,128 +1,151 @@
 /* ============================================================
-   style.css — web1.0風スタイルシート
+   style.css — 「おとめいかーのMakeUpBox!!!」用 web1.0風スタイル
    ------------------------------------------------------------
-   ・古き良きテキストサイト/ホームページ風のデザインです
-   ・角丸なし、影控えめ、枠線でメリハリをつける構成にしています
-   ・クラス名は一般的なブログ構造(header/nav/article/aside/footer等)
-     を想定しているので、実際のHTMLに合わせて調整してください
+   index.htmlの実際の構造(.container / .gimmick-zone / .counter /
+   .banners / main / footer)に合わせています。
+   アクセントカラーはサイト名の雰囲気に寄せてピンク×ラベンダー系に
+   していますが、--color-accent の値だけ変えれば配色を丸ごと差し替え
+   られます。
    ============================================================ */
 
 :root {
-  /* --- 配色 --- */
-  --color-bg: #ffffe1;        /* 懐かしいクリーム系の背景 */
-  --color-paper: #ffffff;     /* コンテンツ面の紙色 */
-  --color-text: #1a1a1a;
-  --color-border: #000080;    /* ネイビー罫線 */
-  --color-link: #0000ee;      /* 未訪問リンク(ブラウザ標準色) */
-  --color-link-visited: #551a8b;
-  --color-link-hover: #ff0000;
-  --color-header-bg: #000080;
-  --color-header-text: #ffffff;
-  --color-muted: #555555;
+  --color-bg: #fff3f8;         /* 背景：うすいピンク */
+  --color-paper: #ffffff;      /* コンテンツの紙色 */
+  --color-accent: #d6407e;     /* メインアクセント：濃いめのピンク */
+  --color-accent-soft: #ffd9e8;/* アクセントの淡色 */
+  --color-border: #e6a6c4;
+  --color-text: #3a2a32;
+  --color-muted: #8a7580;
+  --color-link: #b3005c;
+  --color-link-visited: #7a4ea0;
+  --color-link-hover: #ff5c9d;
 
-  /* --- タイポグラフィ --- */
-  --font-body: "MS Pゴシック", "Osaka-mono", "ＭＳ ゴシック", monospace;
+  --font-body: "MS Pゴシック", "ヒラギノ角ゴ Pro W3", "游ゴシック", monospace;
   --font-heading: "MS Pゴシック", "游ゴシック", sans-serif;
 
-  --content-width: 760px;
+  --content-width: 700px;
 }
 
-/* --- 全体 --- */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  padding: 24px 12px;
+  padding: 24px 10px;
   background-color: var(--color-bg);
-  /* タイル風の細かいストライプで背景に表情をつける */
+  /* 斜めストライプでうっすら模様をつける（web1.0のタイル背景風） */
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(0, 0, 128, 0.03) 0px,
-    rgba(0, 0, 128, 0.03) 1px,
+    rgba(214, 64, 126, 0.04) 0px,
+    rgba(214, 64, 126, 0.04) 1px,
     transparent 1px,
-    transparent 12px
+    transparent 14px
   );
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* --- ページ全体を囲むラッパー --- */
-.page,
-main {
+/* --- 全体を囲む枠 --- */
+.container {
   max-width: var(--content-width);
   margin: 0 auto;
   background-color: var(--color-paper);
-  border: 2px solid var(--color-border);
-  /* 立体的なベベル枠(90年代UIっぽさ) */
+  border: 3px double var(--color-accent);
   box-shadow:
     inset 1px 1px 0 #ffffff,
-    inset -1px -1px 0 #aaaaaa;
-  padding: 0;
+    inset -1px -1px 0 var(--color-accent-soft);
 }
 
 /* --- ヘッダー --- */
 header {
-  background-color: var(--color-header-bg);
-  color: var(--color-header-text);
-  padding: 14px 18px;
-  border-bottom: 2px solid var(--color-border);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 3px double var(--color-accent-soft);
 }
 
 header h1 {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 21px;
   letter-spacing: 1px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
 }
 
-header p.tagline {
-  margin: 4px 0 0;
+header p {
+  margin: 6px 0 0;
   font-size: 12px;
-  color: #cfcfff;
+  color: #ffe3f0;
 }
 
-/* --- ナビゲーション --- */
-nav {
-  background-color: #e8e8f8;
-  border-bottom: 1px dashed var(--color-border);
-  padding: 8px 16px;
-  font-size: 13px;
+/* --- カウンター・バナー類のゾーン --- */
+.gimmick-zone {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px;
+  background-color: var(--color-accent-soft);
+  border-bottom: 1px dashed var(--color-accent);
+  font-size: 12px;
 }
 
-nav a {
-  margin-right: 14px;
+.counter {
+  display: flex;
+  align-items: center;
 }
 
-/* --- 本文エリア --- */
-article,
-.post {
-  padding: 20px;
-  border-bottom: 1px dashed #999999;
+.banners img {
+  border: 1px solid var(--color-accent);
+  vertical-align: middle;
 }
 
-article:last-child,
-.post:last-child {
-  border-bottom: none;
+/* --- 本文 --- */
+main {
+  padding: 20px 22px;
 }
 
-article h2,
-.post h2 {
+main h2 {
   font-family: var(--font-heading);
-  font-size: 18px;
-  color: var(--color-border);
-  border-left: 6px solid var(--color-border);
+  font-size: 16px;
+  color: var(--color-accent);
+  border-left: 6px solid var(--color-accent);
   padding-left: 8px;
+  margin: 22px 0 10px;
+}
+
+main h2:first-child {
   margin-top: 0;
 }
 
-.post-meta {
-  font-size: 12px;
-  color: var(--color-muted);
-  margin-bottom: 10px;
+/* --- 日記の目次（日付ごとにulが分かれている構造に対応） --- */
+main ul {
+  list-style: none;
+  margin: 0 0 4px;
+  padding: 0;
+}
+
+main ul li {
+  padding: 4px 6px;
+  border-bottom: 1px dotted var(--color-border);
+  font-size: 13px;
+}
+
+main ul li:hover {
+  background-color: var(--color-accent-soft);
+}
+
+/* リンク集などのふつうの箇条書きは装飾を分ける */
+main p + ul li {
+  border-bottom: none;
+  list-style: square;
+  margin-left: 18px;
+  padding: 2px 0;
 }
 
 /* --- リンク --- */
@@ -141,85 +164,24 @@ a:focus {
   text-decoration: underline dotted;
 }
 
-/* --- 引用・コード --- */
-blockquote {
-  margin: 12px 0;
-  padding: 8px 14px;
-  border-left: 3px dashed var(--color-border);
-  background-color: #f4f4ff;
-  color: var(--color-muted);
-}
-
-pre,
-code {
-  font-family: "MS ゴシック", monospace;
-  background-color: #f0f0f0;
-  border: 1px solid #cccccc;
-  padding: 2px 4px;
-}
-
-pre {
-  padding: 10px;
-  overflow-x: auto;
-}
-
-/* --- 水平線(古典的な区切り) --- */
-hr {
-  border: none;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid #ffffff;
-  margin: 20px 0;
-}
-
-/* --- サイドバー --- */
-aside {
-  padding: 14px 18px;
-  border-top: 1px dashed #999999;
-  font-size: 13px;
-  background-color: #f7f7ff;
-}
-
-aside h3 {
-  font-size: 13px;
-  color: var(--color-border);
-  margin: 0 0 6px;
-}
-
-aside ul {
-  list-style: square;
-  padding-left: 18px;
-  margin: 0;
-}
-
 /* --- フッター --- */
 footer {
   text-align: center;
   font-size: 11px;
   color: var(--color-muted);
   padding: 12px;
-  border-top: 2px solid var(--color-border);
+  border-top: 3px double var(--color-accent-soft);
 }
 
-footer a {
-  margin: 0 4px;
-}
-
-/* --- 画像 --- */
-img {
-  max-width: 100%;
-  border: 1px solid var(--color-border);
-  padding: 2px;
-  background-color: #ffffff;
-}
-
-/* --- スマホ幅対応(最低限) --- */
+/* --- スマホ幅対応 --- */
 @media (max-width: 600px) {
   header h1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  article,
-  .post,
-  aside {
+  main {
     padding: 14px;
+  }
+  .gimmick-zone {
+    flex-direction: column;
   }
 }
